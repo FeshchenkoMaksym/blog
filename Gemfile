@@ -57,3 +57,14 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
+
+# rspec and factory_bot_rails
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
+end
+
+
+gem 'rubocop', require: false
+gem 'simple_form'
+gem 'slim'
