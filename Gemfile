@@ -60,6 +60,7 @@ end
 
 # rspec and factory_bot_rails
 group :development, :test do
+  gem 'database_cleaner'
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
 end
