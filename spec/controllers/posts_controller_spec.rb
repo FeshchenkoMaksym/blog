@@ -2,21 +2,20 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
-    let!(:post_1) {create :post, title: 'first post'}
-    let!(:post_2) {create :post, title: 'second post'}
-    let!(:post_3) {create :post, title: 'third post'}
+    let(:post_1) {create :post, title: 'first post'}
+    let(:post_2) {create :post, title: 'second post'}
+    let(:post_3) {create :post, title: 'third post'}
 
 
-    describe "get index" do
+    describe "#index" do
       before {get :index}
 
-      it "show all post" do
-        expect(Post.count).to eq(3)
+      it "returns all posts" do
+        expect(assigns(:posts)).to match_array([post_1, post_2, post_3])
       end
 
-      it "last post" do
-        w = Post.last
-        expect(w.title).to eq('third post')
+      it "renders view" do
+        expect(response).to render_template :index
       end
     end
 end
