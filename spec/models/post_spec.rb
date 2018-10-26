@@ -1,34 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  before {@post = Post.new(title: "Cafe", text: "very expensive cafe", author: "Ivanov Vlad")}
+  let(:post_1) {create :post}
 
-  subject {@post}
+  subject {post_1}
 
-  it {should respond_to(:title)}
-  it {should respond_to(:text)}
-  it {should respond_to(:author)}
+  it {is_expected.to respond_to(:title)}
+  it {is_expected.to respond_to(:text)}
+  it {is_expected.to respond_to(:author)}
 
-  it {should be_valid}
+  it {is_expected.to be_valid}
 
   describe "when author is not present" do
-    before {@post.author = ""}
+    before {post_1.author = ""}
 
-    it {should_not be_valid}
+    it {is_expected.to be_invalid}
   end
 
   describe "when title is too long" do
-    before {@post.title = "a" * 32}
-    it {should_not be_valid}
+    before {post_1.title = "a" * 32}
+    it {is_expected.to be_invalid}
   end
 
   describe "when title is too short" do
-    before {@post.title = "a"}
-    it {should_not be_valid}
+    before {post_1.title = "a"}
+    it {is_expected.to be_invalid}
   end
 
   describe "when text is too short" do
-    before {@post.text = "a"}
-    it {should_not be_valid}
+    before {post_1.text = "a"}
+    it {is_expected.to be_invalid}
   end
 end
