@@ -1,10 +1,11 @@
 # This is the default configuration file. Enabling and disabling is configured
 # in separate files. This file adds all other parameters apart from Enabled.
-require: rubocop
+require: rubocop-rspec
+
 
 RSpec/DescribeClass:
   Enabled: false
-RSpec/FilePath:
+Rails/FilePath:
   Enabled: false
 RSpec/MultipleExpectations:
   Enabled: false
@@ -42,6 +43,7 @@ inherit_from:
 AllCops:
   # Include common Ruby source files.
   Include:
+    - '**/**/*'
     - '**/*.gemspec'
     - '**/*.podspec'
     - '**/*.jbuilder'
@@ -61,6 +63,13 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'db/schema.rb'
+    - "bin/**/*"
+    - "log/**/*"
+    - "config/**/*"
+    - '**/Gemfile.lock'
+    - '**/README.md'
+    - 'db/**/*'
+    - "tmp/**/*"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -99,7 +108,7 @@ AllCops:
   CacheRootDirectory: .semaphore-cache/rubocop_cache
   # What version of the Ruby interpreter is the inspected code intended to
   # run on? (If there is more than one, set this to the lowest version.)
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -447,12 +456,7 @@ Layout/EmptyLinesAroundModuleBody:
 # Checks whether the source file has a utf-8 encoding comment or not
 # AutoCorrectEncodingComment must match the regex
 # /#.*coding\s?[:=]\s?(?:UTF|utf)-8/
-Style/Encoding:
-  EnforcedStyle: always
-  SupportedStyles:
-    - when_needed
-    - always
-  AutoCorrectEncodingComment: '# encoding: utf-8'
+
 
 Layout/ExtraSpacing:
   # When true, allows most uses of extra spacing if the intent is to align
@@ -546,9 +550,6 @@ Style/HashSyntax:
 # Force hashes that have a symbol value to use hash rockets
   UseHashRocketsWithSymbolValues: false
 
-Style/IfUnlessModifier:
-  Enabled: false
-  LineLength: { Max: 120 }
 
 Layout/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
@@ -834,9 +835,6 @@ Style/StringMethods:
 
 Layout/SpaceAroundBlockParameters:
   EnforcedStyleInsidePipes: no_space
-  SupportedStyles:
-    - space
-    - no_space
 
 Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: space
@@ -903,10 +901,7 @@ Style/TrailingCommaInArguments:
   # If `consistent_comma`, the cop requires a comma after the last argument,
   # for all parenthesized method calls with arguments.
   EnforcedStyleForMultiline: no_comma
-  SupportedStyles:
-    - comma
-    - consistent_comma
-    - no_comma
+
 
 Style/TrailingCommaInArrayLiteral:
   # If `comma`, the cop requires a comma after the last item in an array or
@@ -914,22 +909,16 @@ Style/TrailingCommaInArrayLiteral:
   # If `consistent_comma`, the cop requires a comma after the last item of all
   # non-empty array and hash literals.
   EnforcedStyleForMultiline: no_comma
-  SupportedStyles:
-    - comma
-    - consistent_comma
-    - no_comma
+
 Style/TrailingCommaInHashLiteral:
 # If `comma`, the cop requires a comma after the last item in an array or
 # hash, but only when each item is on its own line.
 # If `consistent_comma`, the cop requires a comma after the last item of all
 # non-empty array and hash literals.
-EnforcedStyleForMultiline: no_comma
-SupportedStyles:
-- comma
-- consistent_comma
-- no_comma
-# TrivialAccessors requires exact name matches and doesn't allow
-# predicated methods by default.
+ EnforcedStyleForMultiline: no_comma
+
+ # TrivialAccessors requires exact name matches and doesn't allow
+ # predicated methods by default.
 Style/TrivialAccessors:
   # When set to false the cop will suggest the use of accessor methods
   # in situations like:
@@ -975,9 +964,6 @@ Naming/VariableName:
   SupportedStyles:
     - snake_case
     - camelCase
-
-Style/WhileUntilModifier:
-  LineLength: { Max: 120 }
 
 Style/WordArray:
   EnforcedStyle: percent
@@ -1049,10 +1035,6 @@ Layout/EndAlignment:
   # The value `start_of_line` means that `end` should be aligned with the start
   # of the line which the matching keyword appears on.
   EnforcedStyleAlignWith: keyword
-  SupportedStyles:
-    - keyword
-    - variable
-    - start_of_line
   AutoCorrect: false
 
 Layout/DefEndAlignment:
@@ -1061,9 +1043,7 @@ Layout/DefEndAlignment:
   # calls like `private`, `public`, etc, if present in front of the `def`
   # keyword on the same line.
   EnforcedStyleAlignWith: start_of_line
-  SupportedStyles:
-    - start_of_line
-    - def
+
   AutoCorrect: false
 
 # Checks for unused block arguments

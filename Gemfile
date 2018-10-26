@@ -68,5 +68,6 @@ end
 
 
 gem 'rubocop', require: false
+gem 'rubocop-rspec'
 gem 'simple_form'
 gem 'slim'
