@@ -61,6 +61,7 @@ AllCops:
     - '**/Cheffile'
     - '**/Vagabondfile'
   Exclude:
+    - '**/package.json'
     - 'lib/**/**/*'
     - 'public/*'
     - 'app/views/**/*'
