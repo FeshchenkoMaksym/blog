@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe PostsController, type: :controller do
   let(:post_1) { create :post, title: 'first post' }
   let(:post_2) { create :post, title: 'second post' }
