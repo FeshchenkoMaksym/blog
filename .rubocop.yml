@@ -61,6 +61,10 @@ AllCops:
     - '**/Cheffile'
     - '**/Vagabondfile'
   Exclude:
+    - 'lib/**/**/*'
+    - 'public/*'
+    - 'app/views/**/*'
+    - 'app/assets/**/*'
     - 'vendor/**/*'
     - 'db/schema.rb'
     - "bin/**/*"
@@ -108,7 +112,7 @@ AllCops:
   CacheRootDirectory: .semaphore-cache/rubocop_cache
   # What version of the Ruby interpreter is the inspected code intended to
   # run on? (If there is more than one, set this to the lowest version.)
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.5.1
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
