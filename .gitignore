@@ -11,6 +11,7 @@
 log/
 tmp/
 .idea/
+.semaphore-cache/
 
 # Ignore uploaded files in development
 /storage/*
