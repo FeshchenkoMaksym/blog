@@ -66,7 +66,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
 end
 
+gem 'bootstrap'
+gem 'jquery-rails'
 gem 'rubocop', require: false
 gem 'rubocop-rspec'
 gem 'simple_form'
 gem 'slim'
+
