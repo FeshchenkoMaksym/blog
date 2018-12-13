@@ -6,20 +6,36 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body.font-family-base
-    .header
+    header
       .container-fluid-width
-        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-          .navbar-brand
-            =link_to "Blog", '#'
-            button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              span.navbar-toggler-icon
-          .collapse.navbar-collapse.justify-content-end
-            ul.navbar-nav
+        nav.navbar.navbar-expand-lg.navbar-light
+          =link_to "Blog", '#', class: 'navbar-brand'
+          button.navbar-toggler type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            span.navbar-toggler-icon
+          .collapse.navbar-collapse#navbarSupportedContent
+            ul.navbar-nav.ml-auto
               li.nav-item.active
-                .nav-link
-                  =link_to "Sign in", '#'
+                =link_to 'Home', '#', class: 'nav-link'
               li.nav-item.active
-                a.nav-link href="#"Contact
-    .container-fluid.p-3.mb-2.bg-secondary
-      = yield
+                =link_to 'Sign in', '#', class: 'nav-link'
+              li.nav-item.active
+                =link_to 'Contact', '#', class: 'nav-link'
+      hr
+      .mainText
+        | Travel blog
+    body
+      .container-fluid
+        .topic-posts.row
+          .ul.nav
+            li.nav-item
+              =link_to 'Culture', '#', class:'nav-link active'
+            li.nav-item
+              =link_to 'Lifestyle', '#', class: 'nav-link'
+            li.nav-item
+              =link_to 'Arts', '#', class: 'nav-link'
+            li.nav-item
+              =link_to 'Travel', '#', class: 'nav-link'
+          .nav-item.ml-auto
+            =link_to 'Show all', '#', class: 'nav-link'
+
+        = yield

@@ -1,0 +1,20 @@
+header .container-fluid-width {
+  background-color: rgba(242, 242, 242, 0.6);
+}
+header {
+  background-image: url('/assets/background.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+}
+header .mainText {
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+  margin-top: 1.4em;
+  color: #737373 ;
+}
+hr {
+  margin-top: 0px;
+}

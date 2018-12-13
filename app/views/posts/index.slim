@@ -1,16 +1,12 @@
-h1
-  .display-2 List of posts
-
-- @posts.each do |post|
-  .jumbotron
-    p
-      h4
-        .display-4
-          = post.title
-    p
-      .lead
-        = post.text
-      hr
-        .my-4
-    p
-      = post.author
+.postCard.d-flex.flex-wrap.justify-content-center
+  - @posts.each do |post|
+    .card
+      = image_tag('/assets/image.jpg', class: 'card-img-top')
+      .card-body
+        h5.card-title
+          =post.title
+        p.card-text
+          =post.text
+        p.card-text
+          small.text-muted
+            =post.author
