@@ -1,20 +1,18 @@
-header .container-fluid-width {
-  background-color: rgba(242, 242, 242, 0.6);
-}
 header {
   background-image: url('/assets/background.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 400px;
-}
-header .mainText {
-  display: flex;
-  justify-content: center;
-  font-size: xx-large;
-  margin-top: 1.4em;
-  color: #737373 ;
-}
-hr {
-  margin-top: 0px;
+  .container-fluid-width {
+    background-color: $light_gray; //rgba(242, 242, 242, 0.6)
+    border-bottom: 1px solid black;
+  }
+  .title {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    margin-top: 1.4em;
+    color: $gray;  //#737373
+  }
 }

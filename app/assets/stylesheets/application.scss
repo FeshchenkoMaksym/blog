@@ -12,5 +12,9 @@
  * Custom bootstrap variables must be set or imported *before* bootstrap.
  */
 @import "bootstrap";
+@import "shared/colors";
+@import "shared/sizes";
 @import "layout/header";
 @import "layout/body";
+@import "layout/posts";
+

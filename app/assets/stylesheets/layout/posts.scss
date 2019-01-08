@@ -1,0 +1,12 @@
+.topic-posts{
+  padding: $padding_topic_posts;
+  background-color: $white; //#ffffff
+}
+.postCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .card{
+    margin: $margin;
+  }
+}
