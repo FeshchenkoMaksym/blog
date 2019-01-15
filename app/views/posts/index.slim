@@ -1,0 +1,26 @@
+.container-fluid
+  .topic-posts.row
+    .ul.nav
+      li.nav-item
+        =link_to 'Culture', '#', class:'nav-link active'
+      li.nav-item
+        =link_to 'Lifestyle', '#', class: 'nav-link'
+      li.nav-item
+        =link_to 'Arts', '#', class: 'nav-link'
+      li.nav-item
+        =link_to 'Travel', '#', class: 'nav-link'
+    .nav-item.ml-auto
+      =link_to 'Show all', '#', class: 'nav-link'
+
+.container-fluid.postCard
+  - @posts.each do |post|
+    .card
+      = image_tag('/assets/image.jpg', class: 'card-img-top')
+      .card-body
+        h5.card-title
+          =post.title
+        p.card-text
+          =truncate(post.text, :length => 30)
+        p.card-text
+          small.text-muted
+            =post.author
