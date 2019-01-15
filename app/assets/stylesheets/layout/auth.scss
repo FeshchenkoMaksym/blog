@@ -1,0 +1,15 @@
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  h2{
+    display: flex;
+    justify-content: center;
+  }
+  .auth {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    max-width: 500px;
+  }
+}
