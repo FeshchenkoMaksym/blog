@@ -9,10 +9,11 @@ header {
     border-bottom: 1px solid black;
   }
   .title {
+    height: 60%;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: xx-large;
-    margin-top: 1.4em;
     color: $gray;  //#737373
   }
 }
