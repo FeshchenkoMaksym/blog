@@ -9,5 +9,7 @@
       .form-actions
         =f.button :submit, "Log in"
     hr
-
-    =render "devise/shared/links"
+    p
+      |
+        Don`t have an account?
+      =link_to 'Sign up', new_user_registration_path

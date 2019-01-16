@@ -24,6 +24,9 @@
 
 
       =f.button :submit, "Sign up"
+    br
 
-
-    =render "devise/shared/links"
+    p
+      |
+        Do you have an account?
+      =link_to 'Log in', new_user_session_path
