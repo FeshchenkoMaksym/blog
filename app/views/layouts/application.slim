@@ -9,17 +9,23 @@ html
     header
       .container-fluid-width
         nav.navbar.navbar-expand-lg.navbar-light
-          =link_to "Blog", '#', class: 'navbar-brand'
+          =link_to "Blog", root_path, class: 'navbar-brand'
           button.navbar-toggler type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
             span.navbar-toggler-icon
           .collapse.navbar-collapse#navbarSupportedContent
             ul.navbar-nav.ml-auto
               li.nav-item.active
                 =link_to 'Home', '#', class: 'nav-link'
-              li.nav-item.active
-                =link_to 'Sign in', '#', class: 'nav-link'
-              li.nav-item.active
-                =link_to 'Contact', '#', class: 'nav-link'
+              -if user_signed_in?
+                li.nav-item.active
+                  =link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
+                li.nav-item.active
+                  =link_to 'Profile', edit_user_registration_path, class: 'nav-link'
+              -else
+                li.nav-item.active
+                  =link_to 'Sign in', new_user_session_path, class: 'nav-link'
+                li.nav-item.active
+                  =link_to 'Sign up', new_user_registration_path, class: 'nav-link'
       .title
         | Travel blog
     body

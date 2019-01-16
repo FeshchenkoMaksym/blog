@@ -1,0 +1,15 @@
+.container-fluid
+  .auth
+    h2 Log in
+
+    =simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      =f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, placeholder: 'Enter email'
+      =f.input :password, required: true, input_html: { autocomplete: "current-password" }
+
+      .form-actions
+        =f.button :submit, "Log in"
+    hr
+    p
+      |
+        Don`t have an account?
+      =link_to 'Sign up', new_user_registration_path

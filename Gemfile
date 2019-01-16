@@ -67,6 +67,7 @@ group :development, :test do
 end
 
 gem 'bootstrap'
+gem 'devise'
 gem 'jquery-rails'
 gem 'rubocop', require: false
 gem 'rubocop-rspec'
