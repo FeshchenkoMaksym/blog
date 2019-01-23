@@ -19,9 +19,9 @@
         = image_tag('/assets/image.jpg', class: 'card-img-top')
         .card-body
           h5.card-title
-            = post.title
+            = truncate(post.title, :length => 32)
           p.card-text
-            = truncate(post.text, :length => 30)
+            = truncate(post.text, :length => 32)
           p.card-text
             small.text-muted
               = post.user.first_name
