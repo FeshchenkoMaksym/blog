@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_user, only: [:edit, :delete]
   def index
     @posts = Post.all
   end
@@ -17,6 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
       redirect_to @post
     else
@@ -41,7 +44,13 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-private
+  private
+
+  def check_user
+    if current_user != Post.find(params[:id]).user
+      redirect_to root_path
+    end
+  end
 
   def post_params
     params.require(:post).permit(:title, :text)

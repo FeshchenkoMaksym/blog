@@ -1,0 +1,14 @@
+.container
+  h2 New post
+
+  = simple_form_for @post do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :title, required: true
+      = f.input :text, required: true
+
+    .form-actions
+      = f.button :submit, "Create"
+
+  = link_to "Cancel", :back
