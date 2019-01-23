@@ -23,4 +23,4 @@
           =truncate(post.text, :length => 30)
         p.card-text
           small.text-muted
-            =post.author
+            =post.user.first_name
