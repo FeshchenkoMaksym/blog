@@ -1,0 +1,22 @@
+.container-fluid.showPost
+  p
+    h2
+      |
+        Title:
+    = @post.title
+  br
+  p
+    h2
+      |
+        Post:
+    = @post.text
+  br
+  p
+    h2
+      |
+        Author:
+    = @post.user.full_name
+  br
+  p
+    -if current_user&.id == @post.user_id
+      =link_to 'Edit', edit_post_path
