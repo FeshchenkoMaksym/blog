@@ -1,23 +1,22 @@
-.container
+.container-fluid.showPost
   p
     h2
       |
         Title:
-    =@post.title
+    = @post.title
   br
   p
     h2
       |
         Post:
-    =@post.text
+    = @post.text
   br
   p
     h2
       |
-        First name:
-    =@post.user.first_name
+        Author:
+    = @post.user.full_name
   br
   p
-    -unless current_user.blank?
-      -if current_user.id == @post.user_id
-        =link_to 'Edit', edit_post_path
+    -if current_user&.id == @post.user_id
+      =link_to 'Edit', edit_post_path

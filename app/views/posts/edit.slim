@@ -1,5 +1,6 @@
-.container
-  h2 Edit
-  =render 'form'
-  = link_to 'Back', :back
-  = link_to 'Delete post', post_path, method: :delete, data: { confirm: 'Are you sure?' }
+.container-fluid
+  .auth
+    h2 Edit
+    =render 'form'
+    = link_to 'Back', :back
+    = link_to 'Delete post', post_path, method: :delete, data: { confirm: 'Are you sure?' }

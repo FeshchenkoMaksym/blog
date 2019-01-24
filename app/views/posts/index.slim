@@ -14,8 +14,8 @@
 
 .container-fluid.postCard
   - @posts.each do |post|
-    = link_to post_path(post)
-      .card
+    .card.border-dark
+      = link_to post_path(post)
         = image_tag('/assets/image.jpg', class: 'card-img-top')
         .card-body
           h5.card-title
